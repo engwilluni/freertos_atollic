@@ -91,7 +91,7 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
-
+  SEGGER_SYSVIEW_Conf();
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in freertos.c) */
