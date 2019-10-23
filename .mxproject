@@ -1,7 +1,7 @@
 [PreviousGenFiles]
-HeaderPath=C:/Users/Unifei/Atollic/TrueSTUDIO/STM32_workspace_9.3/freertos_atollic/Inc
+HeaderPath=D:/EmbeddedSystems/Projetcts/freertos_atollic/Inc
 HeaderFiles=gpio.h;FreeRTOSConfig.h;stm32f1xx_it.h;stm32f1xx_hal_conf.h;main.h;
-SourcePath=C:/Users/Unifei/Atollic/TrueSTUDIO/STM32_workspace_9.3/freertos_atollic/Src
+SourcePath=D:/EmbeddedSystems/Projetcts/freertos_atollic/Src
 SourceFiles=gpio.c;freertos.c;stm32f1xx_it.c;stm32f1xx_hal_msp.c;stm32f1xx_hal_timebase_tim.c;main.c;
 
 [PreviousLibFiles]
