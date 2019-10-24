@@ -49,6 +49,8 @@
 
 /* USER CODE END Variables */
 osThreadId Task1Handle;
+osThreadId Task2Handle;
+osThreadId Task3Handle;
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -56,6 +58,8 @@ osThreadId Task1Handle;
 /* USER CODE END FunctionPrototypes */
 
 void StartTask1(void const * argument);
+void StartTask2(void const * argument);
+void StartTask3(void const * argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -90,6 +94,14 @@ void MX_FREERTOS_Init(void) {
   osThreadDef(Task1, StartTask1, osPriorityNormal, 0, 128);
   Task1Handle = osThreadCreate(osThread(Task1), NULL);
 
+  /* definition and creation of Task2 */
+  osThreadDef(Task2, StartTask2, osPriorityNormal, 0, 128);
+  Task2Handle = osThreadCreate(osThread(Task2), NULL);
+
+  /* definition and creation of Task3 */
+  osThreadDef(Task3, StartTask3, osPriorityAboveNormal, 0, 128);
+  Task3Handle = osThreadCreate(osThread(Task3), NULL);
+
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
   /* USER CODE END RTOS_THREADS */
@@ -105,16 +117,57 @@ void MX_FREERTOS_Init(void) {
 /* USER CODE END Header_StartTask1 */
 void StartTask1(void const * argument)
 {
-    
-    
+    const char *pcTaskName = "Running task 1. \r\n";
 
   /* USER CODE BEGIN StartTask1 */
   /* Infinite loop */
   for(;;)
   {
-    osDelay(1);
+	  SEGGER_SYSVIEW_PrintfHost(pcTaskName);
+	  HAL_Delay(100);
+
   }
   /* USER CODE END StartTask1 */
+}
+
+/* USER CODE BEGIN Header_StartTask2 */
+/**
+* @brief Function implementing the Task2 thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_StartTask2 */
+void StartTask2(void const * argument)
+{
+	const char *pcTaskName = "Running task 2. \r\n";
+  /* USER CODE BEGIN StartTask2 */
+  /* Infinite loop */
+  for(;;)
+  {
+	  SEGGER_SYSVIEW_PrintfHost(pcTaskName);
+	  HAL_Delay(100);
+  }
+  /* USER CODE END StartTask2 */
+}
+
+/* USER CODE BEGIN Header_StartTask3 */
+/**
+* @brief Function implementing the Task3 thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_StartTask3 */
+void StartTask3(void const * argument)
+{
+	const char *pcTaskName = "Running task 3. \r\n";
+  /* USER CODE BEGIN StartTask3 */
+  /* Infinite loop */
+  for(;;)
+  {
+	  SEGGER_SYSVIEW_PrintfHost(pcTaskName);
+    osDelay(1000);
+  }
+  /* USER CODE END StartTask3 */
 }
 
 /* Private application code --------------------------------------------------*/
