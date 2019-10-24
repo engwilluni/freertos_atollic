@@ -120,7 +120,7 @@ void StartTask1(void const * argument)
   for(;;)
   {
 	  SEGGER_SYSVIEW_PrintfHost(pcTaskName);
-    HAL_Delay(1000);
+    osDelay(1000);
   }
   /* USER CODE END StartTask1 */
 }
@@ -140,7 +140,7 @@ void StartTask2(void const * argument)
   for(;;)
   {
 	  SEGGER_SYSVIEW_PrintfHost(pcTaskName);
-    HAL_Delay(1000);
+    osDelay(1000);
   }
   /* USER CODE END StartTask2 */
 }
